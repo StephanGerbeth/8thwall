@@ -12,11 +12,12 @@ module.exports = {
 
   server: {
     port: 8050,
+    host: '192.168.178.177',
     timing: false,
     https: (function () {
       const dir = './env/cert';
-      const key = path.join(dir, 'server.key');
-      const crt = path.join(dir, 'server.crt');
+      const key = path.join(dir, 'localhost.key');
+      const crt = path.join(dir, 'localhost.crt');
 
       if (fs.existsSync(key) && fs.existsSync(crt)) {
         return { key: fs.readFileSync(key), cert: fs.readFileSync(crt) };
@@ -180,41 +181,41 @@ module.exports = {
         ]
       }
     ],
-    [
-      '@nuxtjs/pwa', {
-        dev: isDev,
-        icon: {
-          iconSrc: 'src/static/favicon.png',
-          sizes: [
-            16, 120, 144, 152, 192, 384, 512
-          ]
-        },
-        meta: {
-          charset: 'utf-8',
-          viewport: 'width=device-width, initial-scale=1',
-          mobileApp: true,
-          mobileAppIOS: true,
-          appleStatusBarStyle: 'default',
-          favicon: true,
-          name: 'TITLE',
-          author: 'metaAuthor',
-          description: 'metaDescription',
-          theme_color: 'black',
-          lang: 'de',
-          ogType: 'website',
-          ogSiteName: 'ogSITE_NAME',
-          ogTitle: 'ogTITLE',
-          ogDescription: 'ogDESCRIPTION',
-          ogHost: undefined,
-          ogImage: true
-        },
-        manifest: {
-          name: 'Sample MANIFEST',
-          short_name: 'Sample',
-          lang: 'de'
-        }
-      }
-    ],
+    // [
+    //   '@nuxtjs/pwa', {
+    //     dev: isDev,
+    //     icon: {
+    //       iconSrc: 'src/static/favicon.png',
+    //       sizes: [
+    //         16, 120, 144, 152, 192, 384, 512
+    //       ]
+    //     },
+    //     meta: {
+    //       charset: 'utf-8',
+    //       viewport: 'width=device-width, initial-scale=1',
+    //       mobileApp: true,
+    //       mobileAppIOS: true,
+    //       appleStatusBarStyle: 'default',
+    //       favicon: true,
+    //       name: 'TITLE',
+    //       author: 'metaAuthor',
+    //       description: 'metaDescription',
+    //       theme_color: 'black',
+    //       lang: 'de',
+    //       ogType: 'website',
+    //       ogSiteName: 'ogSITE_NAME',
+    //       ogTitle: 'ogTITLE',
+    //       ogDescription: 'ogDESCRIPTION',
+    //       ogHost: undefined,
+    //       ogImage: true
+    //     },
+    //     manifest: {
+    //       name: 'Sample MANIFEST',
+    //       short_name: 'Sample',
+    //       lang: 'de'
+    //     }
+    //   }
+    // ],
     [
       '@nuxtjs/sitemap', {
         path: 'sitemap.xml',
